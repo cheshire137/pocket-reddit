@@ -1,0 +1,28 @@
+
+{
+  "manifest_version": 2,
+  "name": "Pocket Reddit",
+  "description": "View links to Reddit discussions for links in your Pocket queue.",
+  "version": "0.0.0.1",
+  "permissions": [
+    "tabs", "storage", "*://*.getpocket.com/*"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["*://*.getpocket.com/*"],
+      "js": ["jquery-2.1.1.min.js", "content_script.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["jquery-2.1.1.min.js", "background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "web_accessible_resources": ["icon48.png"]
+}
